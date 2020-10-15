@@ -7,12 +7,14 @@
 
 <script>
 import { ref } from "vue";
-import {v4 as uuidv4} from 'uuid';
+// Thư viện tự động tạo id
+import { v4 as uuidv4 } from "uuid";
 export default {
   name: "Addtitle",
   setup(props, context) {
     const title = ref("");
     const addItem = (event) => {
+      // Ngăn chuyển đến action
       event.preventDefault();
 
       const newItem = {
@@ -21,6 +23,7 @@ export default {
         completed: false,
       };
 
+      //gọi hàm add-todo trong thàng gọi nó với tham số là newItem
       context.emit("add-todo", newItem);
       title.value = "";
     };
